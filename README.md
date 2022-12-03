@@ -66,7 +66,8 @@ export async function deeplink(loginUrl: string) {
 ## Development
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md).
-Thanks! 💖
+
+Thanks! ❤️🌻
 
 ## Contributors
 
@@ -74,14 +75,6 @@ Thanks! 💖
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <!-- spellchecker: disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="https://github.com/johnnyreilly/easyauth-deeplink/issues?q=author%3AJoshuaKGoldberg" title="Bug reports">🐛</a> <a href="https://github.com/johnnyreilly/easyauth-deeplink/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#content-JoshuaKGoldberg" title="Content">🖋</a> <a href="#example-JoshuaKGoldberg" title="Examples">💡</a> <a href="#ideas-JoshuaKGoldberg" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-JoshuaKGoldberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a> <a href="#platform-JoshuaKGoldberg" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-JoshuaKGoldberg" title="Project Management">📆</a> <a href="https://github.com/johnnyreilly/easyauth-deeplink/pulls?q=is%3Apr+reviewed-by%3AJoshuaKGoldberg" title="Reviewed Pull Requests">👀</a> <a href="#security-JoshuaKGoldberg" title="Security">🛡️</a> <a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a> <a href="https://github.com/johnnyreilly/easyauth-deeplink/commits?author=JoshuaKGoldberg" title="Tests">⚠️</a></td>
-      <td align="center"><a href="https://sinchang.me"><img src="https://avatars.githubusercontent.com/u/3297859?v=4?s=100" width="100px;" alt="Jeff Wen"/><br /><sub><b>Jeff Wen</b></sub></a><br /><a href="#tool-sinchang" title="Tools">🔧</a></td>
-    </tr>
-  </tbody>
-</table>
 
 <!-- spellchecker: enable -->
 <!-- markdownlint-restore -->
