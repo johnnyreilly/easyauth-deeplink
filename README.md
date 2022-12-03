@@ -21,6 +21,20 @@
     <img alt="TypeScript: Strict" src="https://img.shields.io/badge/typescript-strict-21bb42.svg" />
 </p>
 
+## What is this?
+
+Azure Static Web Apps support [EasyAuth](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization) for simple authentication. However, [deeplinking is not meaningfully supported](https://github.com/Azure/static-web-apps/issues/435) - when you are redirected back to your app after authentication you lose query parameters from the URL which is a problem if you want to use deeplinking.
+
+This package implements a workaround which allows you to use query parameters with EasyAuth. It works like this:
+
+- it checks whether a user is authenticated
+- if they are not, it:
+  - stores the path and query string in localStorage and
+  - redirects them to the login page
+- when they return post-authentication it retrieves the path and query string from localStorage and sets the URL to that
+
+You use this as the first action that runs before your app renders. This means that the approach should be framework agnostic. It's been tested with React.
+
 ## Usage
 
 ```shell
@@ -31,10 +45,22 @@ npm i easyauth-deeplink
 import { deeplink } from "easyauth-deeplink";
 
 function main() {
-	// start your application
+	// code that starts your application
 }
 
 deeplink("/login").then(main);
+```
+
+## API
+
+```ts
+/**
+ * If authenticated, redirect to the path and query string stored in local storage.
+ * If not authenticated, store the current path and query string in local storage and redirect to the login page.
+ *
+ * @param loginUrl The URL to redirect to if the user is not authenticated
+ */
+export async function deeplink(loginUrl: string) {
 ```
 
 ## Development

@@ -1,3 +1,5 @@
+import { AuthMe } from "./types";
+
 const deeplinkPathAndQueryKey = "deeplink:pathAndQuery";
 
 /**
@@ -7,16 +9,6 @@ const deeplinkPathAndQueryKey = "deeplink:pathAndQuery";
  * @param loginUrl The URL to redirect to if the user is not authenticated
  */
 export async function deeplink(loginUrl: string) {
-    await deeplinkImpl(loginUrl, localStorage, history, location, console);
-}
-
-async function deeplinkImpl(
-    loginUrl: string,
-    localStorage: Storage,
-    history: History,
-    location: Location,
-    console: Console
-) {
     const pathAndQuery = location.pathname + location.search;
     console.log(`deeplink: URL before: ${pathAndQuery}`);
 
