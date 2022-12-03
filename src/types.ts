@@ -1,12 +1,12 @@
 export interface AuthMe {
-    clientPrincipal: null | {
-        identityProvider: string;
-        userId: string;
-        userDetails: string;
-        userRoles: string[];
-        claims: {
-            typ: string;
-            val: string;
-        }[];
-    };
+	clientPrincipal: null | {
+		claims: {
+			typ: string;
+			val: string;
+		}[];
+		identityProvider: string;
+		userDetails: string;
+		userId: string;
+		userRoles: string[];
+	};
 }

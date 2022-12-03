@@ -1,17 +1,5 @@
 {
-	"dictionaries": [
-		"typescript"
-	],
-	"ignorePaths": [
-		".github",
-		"dist",
-		"node_modules"
-	],
-	"words": [
-		"commitlint",
-		"deeplink",
-		"deeplinking",
-		"easyauth",
-		"johnnyreilly"
-	]
+	"dictionaries": ["typescript"],
+	"ignorePaths": [".github", "dist", "node_modules"],
+	"words": ["commitlint", "deeplink", "deeplinking", "easyauth", "johnnyreilly"]
 }
