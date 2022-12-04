@@ -21,7 +21,7 @@
     <img alt="TypeScript: Strict" src="https://img.shields.io/badge/typescript-strict-21bb42.svg" />
 </p>
 
-## What is this?
+## What is `easyauth-deeplink`?
 
 Azure Static Web Apps support [EasyAuth](https://learn.microsoft.com/en-us/azure/app-service/overview-authentication-authorization) for simple authentication. However, [deeplinking is not meaningfully supported](https://github.com/Azure/static-web-apps/issues/435) - when you are redirected back to your app after authentication you lose query parameters from the URL which is a problem if you want to use deeplinking.
 
@@ -33,9 +33,11 @@ This package implements a workaround which allows you to use query parameters wi
   - redirects them to the login page
 - when they return post-authentication it retrieves the path and query string from localStorage and sets the URL to that
 
-You use this as the first action that runs before your app renders. This means that the approach should be framework agnostic. It's been tested with React.
+nb: `easyauth-deeplink` requires that anonymous access to your site is allowed so it can harvest the path / query to redirect to. We advise that you apply security at the API layer and to any secure data within your app.
 
 ## Usage
+
+You use `easyauth-deeplink` as the first action that runs before your app renders. This means that the approach should be framework agnostic. `easyauth-deeplink` been tested with React and Azure Static Web Apps.
 
 ```shell
 npm i easyauth-deeplink
