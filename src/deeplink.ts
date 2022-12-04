@@ -13,35 +13,41 @@ export async function deeplink(loginUrl: string) {
 		throw new Error("loginUrl is required");
 	}
 
-	const pathAndQuery = location.pathname + location.search;
-	console.log(`deeplink: URL before: ${pathAndQuery}`);
+    const pathAndQuery = location.pathname + location.search;
+    console.log(`deeplink: URL before: ${pathAndQuery}`);
 
-	const isAuth = await isAuthenticated();
+    const deeplinkPathAndQuery = localStorage.getItem(deeplinkPathAndQueryKey);
 
-	if (isAuth) {
-		const deeplinkPathAndQuery = localStorage.getItem(deeplinkPathAndQueryKey);
-		if (pathAndQuery === "/" && deeplinkPathAndQuery) {
-			console.log(`deeplink: Redirecting to ${deeplinkPathAndQuery}`);
-			localStorage.removeItem(deeplinkPathAndQueryKey);
-			history.replaceState(null, "", deeplinkPathAndQuery);
-		}
-	} else {
-		console.log(`deeplink: Storing redirect URL of ${pathAndQuery}`);
-		localStorage.setItem(deeplinkPathAndQueryKey, pathAndQuery);
-		location.href = loginUrl;
-	}
+    const isAuth = await isAuthenticated();
 
-	console.log(`deeplink: URL after: ${location.pathname + location.search}`);
+    if (isAuth) {
+        if (deeplinkPathAndQuery && pathAndQuery === "/") {
+            console.log(`deeplink: Redirecting to ${deeplinkPathAndQuery}`);
+            localStorage.removeItem(deeplinkPathAndQueryKey);
+            history.replaceState(null, "", deeplinkPathAndQuery);
+        }
+    } else if (!deeplinkPathAndQuery) {
+        if (pathAndQuery !== "/" && pathAndQuery !== loginUrl) {
+            console.log(
+                `deeplink: Storing redirect URL of ${pathAndQuery} and redirecting to ${loginUrl}`
+            );
+            localStorage.setItem(deeplinkPathAndQueryKey, pathAndQuery);
+            location.href = loginUrl;
+        } else {
+            console.log(`deeplink: Redirecting to ${loginUrl}`);
+            location.href = loginUrl;
+        }
+    }
 }
 
 async function isAuthenticated() {
-	try {
-		const response = await fetch("/.auth/me");
+    try {
+        const response = await fetch("/.auth/me");
 		const authMe = (await response.json()) as AuthMe;
-		const isAuth = authMe.clientPrincipal !== null;
-		return isAuth;
-	} catch (error) {
-		console.error("Failed to fetch /.auth/me", error);
-		return false;
-	}
+        const isAuth = authMe.clientPrincipal !== null;
+        return isAuth;
+    } catch (error) {
+        console.error("Failed to fetch /.auth/me", error);
+        return false;
+    }
 }

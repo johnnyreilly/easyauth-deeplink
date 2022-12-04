@@ -3,11 +3,13 @@
 <p align="center">Enable deeplinking with Azure Easy Auth</p>
 
 <p align="center">
-	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors">
-		<img alt="All Contributors" src="https://img.shields.io/badge/all_contributors-1-21bb42.svg" />
+	<a href="https://www.npmjs.com/package/easyauth-deeplink">
+		<img alt="npm version" src="https://img.shields.io/npm/v/easyauth-deeplink.svg" />
 	</a>
-	<!-- ALL-CONTRIBUTORS-BADGE:END -->
+	<a href="https://www.npmjs.com/package/easyauth-deeplink">
+		<img alt="Downloads" src="http://img.shields.io/npm/dm/easyauth-deeplink.svg" />
+	</a>
+	<img alt="node version" src="http://img.shields.io/node/v/easyauth-deeplink.svg" />
 	<img alt="Code Style: Prettier" src="https://img.shields.io/badge/code_style-prettier-21bb42.svg" />
 	<a href="https://github.com/johnnyreilly/easyauth-deeplink/blob/main/.github/CODE_OF_CONDUCT.md">
 		<img alt="Contributor Covenant" src="https://img.shields.io/badge/code_of_conduct-contributor_covenant-21bb42" />
@@ -70,16 +72,3 @@ export async function deeplink(loginUrl: string) {
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md).
 
 Thanks! ❤️🌻
-
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- spellchecker: disable -->
-
-<!-- spellchecker: enable -->
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
