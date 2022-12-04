@@ -1,5 +1,12 @@
-export interface GreetOptions {
-	logger?: (message: string) => void;
-	message: string;
-	times?: number;
+export interface AuthMe {
+	clientPrincipal: null | {
+		claims: {
+			typ: string;
+			val: string;
+		}[];
+		identityProvider: string;
+		userDetails: string;
+		userId: string;
+		userRoles: string[];
+	};
 }
