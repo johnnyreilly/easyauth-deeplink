@@ -1,16 +1,21 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { deeplink } from "./deeplink";
-
-// const message = "Yay, testing!";
 
 describe("deeplink", () => {
 	it("throws an error if a loginUrl is not provided", async () => {
 		await expect(() => deeplink("")).rejects.toThrow("loginUrl is required");
 	});
 
+	// TODO: Test deeplink
+
 	// it("does stuff", async () => {
-	// 	await expect(() => deeplink("/login"))..toThrow("loginUrl is required");
+	// 	const logger = vi.spyOn(location, "pathname").mockImplementation(() => undefined);
+
+	// 	await deeplink("/login");
+
+	// 	expect(logger).toHaveBeenCalledWith(message);
+	// 	expect(logger).toHaveBeenCalledTimes(1);
 	// });
 
 	// it("logs to the console once when message is provided as a string", () => {
