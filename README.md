@@ -37,6 +37,8 @@ This package implements a workaround which allows you to use query parameters wi
 
 nb: `easyauth-deeplink` requires that anonymous access to your site is allowed so it can harvest the path / query to redirect to. We advise that you apply security at the API layer and to any secure data within your app.
 
+[To learn more, read this blog post](https://blog.johnnyreilly.com/2022/12/04/azure-static-web-apps-easyauth-deeplink).
+
 ## Usage
 
 You use `easyauth-deeplink` as the first action that runs before your app renders. This means that the approach should be framework agnostic. `easyauth-deeplink` been tested with React and Azure Static Web Apps.
@@ -52,10 +54,19 @@ function main() {
 	// code that starts your application
 }
 
-deeplink("/login").then(main);
+deeplink("/.auth/login/aad").then(main);
+// or
+deeplink("/.auth/login/github").then(main);
+// or
+deeplink("/.auth/login/twitter").then(main);
+// or
+deeplink("/.auth/login/google").then(main);
+// etc
 ```
 
 ## API
+
+The `deeplink` function takes a single parameter which is the URL to redirect to for authentication. It either triggers the authentication flow or returns a `Promise` which resolves when the route has been set to the deep linked URL.
 
 ```ts
 /**
@@ -64,7 +75,7 @@ deeplink("/login").then(main);
  *
  * @param loginUrl The URL to redirect to if the user is not authenticated
  */
-export async function deeplink(loginUrl: string) {
+export async function deeplink(loginUrl: string): Promise<void> {
 ```
 
 ## Development
