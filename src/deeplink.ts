@@ -9,6 +9,10 @@ const deeplinkPathAndQueryKey = "deeplink:pathAndQuery";
  * @param loginUrl The URL to redirect to if the user is not authenticated
  */
 export async function deeplink(loginUrl: string) {
+	if (!loginUrl) {
+		throw new Error("loginUrl is required");
+	}
+
 	const pathAndQuery = location.pathname + location.search;
 	console.log(`deeplink: URL before: ${pathAndQuery}`);
 
@@ -33,7 +37,7 @@ export async function deeplink(loginUrl: string) {
 async function isAuthenticated() {
 	try {
 		const response = await fetch("/.auth/me");
-		const authMe: AuthMe = await response.json();
+		const authMe = (await response.json()) as AuthMe;
 		const isAuth = authMe.clientPrincipal !== null;
 		return isAuth;
 	} catch (error) {
