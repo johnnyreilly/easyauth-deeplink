@@ -8,7 +8,7 @@ const deeplinkPathAndQueryKey = "deeplink:pathAndQuery";
  *
  * @param loginUrl The URL to redirect to if the user is not authenticated
  */
-export async function deeplink(loginUrl: string) {
+export async function deeplink(loginUrl: string): Promise<void> {
 	if (!loginUrl) {
 		throw new Error("loginUrl is required");
 	}
